@@ -1,0 +1,15 @@
+<h1>{{ question.question_text }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+<form action="{% url 'details'%}" method="POST">
+    {% csrf_token %}
+    <input id="choice{{ forloop.counter }}" type="text" name="choice" value="">
+    <label for='choice{{ forloop.counter }}'>Enter text: </label>
+    <input id="choice{{ forloop.counter }} + 1" type="date" name="pub_date" value="">
+    <label for='choice{{ forloop.counter }} + 1'>Enter date: </label>
+    <input type="submit" value="OK">
+    <input id="choice{{ forloop.counter }} + 2" type="text" name="author" value="">
+    <label for='choice{{ forloop.counter }} + 2'>Enter author: </label>
+    <input type="submit" value="OK">
+</form>
+<h1>Ваш ответ: {{selected_choice}}</h1>

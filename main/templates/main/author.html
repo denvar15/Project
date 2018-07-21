@@ -1,0 +1,10 @@
+<h1>Посты этого автора:</h1>
+</br>
+{% if this_author_question_list %}
+    <ul>
+    {% for question in this_author_question_list %}
+        <li><a href="/main/{{question.id}}/date/">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+{% endif %}
